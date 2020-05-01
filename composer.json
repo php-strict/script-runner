@@ -1,13 +1,15 @@
 {
     "name": "php-strict/script-runner",
     "type": "library",
-    "description": "Class for running separate processes of PHP CLI scripts.",
+    "description": "Class for running PHP CLI script in several separate processes.",
     "keywords": [
         "php",
+        "cli",
         "script",
         "runner",
         "script runner",
-        "script executor"
+        "script executor",
+        "separate process"
     ],
     "homepage": "https://github.com/php-strict/script-runner",
     "license": "GPL-2.0-or-later",

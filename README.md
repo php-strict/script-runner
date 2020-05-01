@@ -2,7 +2,7 @@
 
 [![Software License][ico-license]](LICENSE.txt)
 
-Class for running separate processes of PHP CLI scripts.
+Class for running PHP CLI script in several separate processes.
 
 ## Requirements
 
@@ -28,6 +28,7 @@ composer require php-strict/script-runner
 ```php
 use PhpStrict\ScriptRunner\ScriptRunner;
 
+//params: path_to_script, processes count (if omitted then system CPU cores count will be used)
 $sr = new ScriptRunner('script.php', 4);
 $sr->run();
 ```

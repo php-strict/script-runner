@@ -12,8 +12,11 @@ declare(strict_types=1);
 namespace PhpStrict\CooperativeWorker;
 
 /**
- * Class for running separate processes of PHP CLI scripts.
- * Also may be used with https://github.com/php-strict/cooperative-worker to run scripts with its instances.
+ * Class for running PHP CLI script in several separate processes.
+ * Also may be used with https://github.com/php-strict/cooperative-worker 
+ * to run script with its instance several times.
+ * It is possible to extend this class and redefine const PROCESS_COMMAND
+ * to execute some different from php command, but on your own risk.
  */
 class ScriptRunner
 {
@@ -59,7 +62,7 @@ class ScriptRunner
     
     /**
      * @param string $runScript     path to script to run
-     * @param int $procCount = 0    count of running processes
+     * @param int $procCount = 0    count of running processes, if omitted then system CPU cores count will be used
      */
     public function __construct(string $runScript, int $procCount = 0)
     {
@@ -83,7 +86,7 @@ class ScriptRunner
     {
         for ($i = 0; $i < $this->procCount; $i++) {
             echo 'Run script #' . $i . '... ';
-            $handle = popen(sprintf(self::PROCESS_COMMAND, $this->runScript), 'r');
+            $handle = popen(sprintf(static::PROCESS_COMMAND, $this->runScript), 'r');
             $this->procHandles[] = [$i, $handle];
             stream_set_blocking($handle, false); //not work on Windows
             echo 'OK' . PHP_EOL;
