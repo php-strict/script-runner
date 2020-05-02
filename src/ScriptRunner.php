@@ -9,7 +9,7 @@
 
 declare(strict_types=1);
 
-namespace PhpStrict\CooperativeWorker;
+namespace PhpStrict\ScriptRunner;
 
 /**
  * Class for running PHP CLI script in several separate processes.
