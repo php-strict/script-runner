@@ -87,9 +87,13 @@ class ScriptRunner
         for ($i = 0; $i < $this->procCount; $i++) {
             echo 'Run script #' . $i . '... ';
             $handle = popen(sprintf(static::PROCESS_COMMAND, $this->runScript), 'r');
-            $this->procHandles[] = [$i, $handle];
-            stream_set_blocking($handle, false); //not work on Windows
-            echo 'OK' . PHP_EOL;
+            if (is_resource($handle)) {
+                $this->procHandles[] = [$i, $handle];
+                stream_set_blocking($handle, false); //not work on Windows
+                echo 'OK' . PHP_EOL;
+                continue;
+            }
+            echo 'FAIL' . PHP_EOL;
         }
         
         do {
