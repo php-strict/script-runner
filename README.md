@@ -33,6 +33,12 @@ $sr = new ScriptRunner('script.php', 4);
 $sr->run();
 ```
 
+May be used with [CooperativeWorker](https://github.com/php-strict/cooperative-worker)
+to split one sequential process into several separated processes and keep them from collisions 
+and making the same job twice.
+For eaxample it is possible to convert process of parsing log files from cycle (where log files parsing one-by-one)
+into several separated processes where each process take job from common temporary storage (queue).
+
 ## Tests
 
 To execute the test suite, you'll need [Codeception](https://codeception.com/).
