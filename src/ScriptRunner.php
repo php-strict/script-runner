@@ -98,7 +98,7 @@ class ScriptRunner
         
         do {
             for ($i = 0, $cnt = count($this->procHandles); $i < $cnt; $i++) {
-                $out = fread($this->procHandles[$i][1], self::PROCESS_READ_LENGTH);
+                $out = fread($this->procHandles[$i][1], static::PROCESS_READ_LENGTH);
                 
                 if (!$silent) {
                     echo $out;
@@ -116,7 +116,7 @@ class ScriptRunner
                 }
             }
             
-            usleep(self::PROCESSES_POLLING_INTERVAL);
+            usleep(static::PROCESSES_POLLING_INTERVAL);
             
         } while (0 < count($this->procHandles));
     }
@@ -126,8 +126,8 @@ class ScriptRunner
      */
     protected function limitProcCount(): void
     {
-        if (0 >= $this->procCount || self::PROCESSES_COUNT_LIMIT < $this->procCount) {
-            $this->procCount = self::PROCESSES_COUNT_DEFAULT;
+        if (0 >= $this->procCount || static::PROCESSES_COUNT_LIMIT < $this->procCount) {
+            $this->procCount = static::PROCESSES_COUNT_DEFAULT;
         }
     }
     
