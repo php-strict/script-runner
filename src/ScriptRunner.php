@@ -33,7 +33,7 @@ class ScriptRunner
     /**
      * @var string
      */
-    protected const PROCESS_COMMAND = 'php -f %s';
+    protected const PROCESS_COMMAND = 'php -f %s %d';
     
     /**
      * @var int
@@ -86,7 +86,7 @@ class ScriptRunner
     {
         for ($i = 0; $i < $this->procCount; $i++) {
             echo 'Run script #' . $i . '... ';
-            $handle = popen(sprintf(static::PROCESS_COMMAND, $this->runScript), 'r');
+            $handle = popen(sprintf(static::PROCESS_COMMAND, $this->runScript, $i), 'r');
             if (is_resource($handle)) {
                 $this->procHandles[] = [$i, $handle];
                 stream_set_blocking($handle, false); //not work on Windows
