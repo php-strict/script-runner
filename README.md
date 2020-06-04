@@ -2,6 +2,7 @@
 
 [![Software License][ico-license]](LICENSE.txt)
 [![Build Status][ico-travis]][link-travis]
+[![codecov][ico-codecov]][link-codecov]
 
 Class for running PHP CLI script in several separate processes.
 
@@ -51,3 +52,5 @@ vendor/bin/codecept run
 [ico-license]: https://img.shields.io/badge/license-GPL-brightgreen.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/php-strict/script-runner/master.svg?style=flat-square
 [link-travis]: https://travis-ci.org/php-strict/script-runner
+[ico-codecov]: https://codecov.io/gh/php-strict/script-runner/branch/master/graph/badge.svg
+[link-codecov]: https://codecov.io/gh/php-strict/script-runner
