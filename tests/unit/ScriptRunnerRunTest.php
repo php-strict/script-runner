@@ -16,4 +16,19 @@ class ScriptRunnerRunTest extends \Codeception\Test\Unit
         
         unlink($tmpscript);
     }
+    
+    public function testRunError()
+    {
+        $tmpscript = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'test-sr-script.php';
+        
+        file_put_contents($tmpscript, '<?php echo "TEST SCRIPT RUNNING"' . PHP_EOL);
+        
+        $sr = new ScriptRunner($tmpscript, 1);
+        ob_start();
+        $sr->run();
+        $out = ob_get_clean();
+        $this->assertTrue(false !== stripos($out, 'error'));
+        
+        unlink($tmpscript);
+    }
 }
