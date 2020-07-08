@@ -3,6 +3,7 @@
 [![Software License][ico-license]](LICENSE.txt)
 [![Build Status][ico-travis]][link-travis]
 [![codecov][ico-codecov]][link-codecov]
+[![Codacy Badge][ico-codacy]][link-codacy]
 
 Class for running PHP CLI script in several separate processes.
 
@@ -54,3 +55,5 @@ vendor/bin/codecept run
 [link-travis]: https://travis-ci.org/php-strict/script-runner
 [ico-codecov]: https://codecov.io/gh/php-strict/script-runner/branch/master/graph/badge.svg
 [link-codecov]: https://codecov.io/gh/php-strict/script-runner
+[ico-codacy]: https://app.codacy.com/project/badge/Grade/7c78e2d59fce46e78fb65160dc530bd3
+[link-codacy]: https://www.codacy.com/gh/php-strict/script-runner?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=php-strict/script-runner&amp;utm_campaign=Badge_Grade
